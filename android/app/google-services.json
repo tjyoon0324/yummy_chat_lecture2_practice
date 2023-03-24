@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "646716086782",
+    "project_id": "chatting-912a2",
+    "storage_bucket": "chatting-912a2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:646716086782:android:d4bb0e8ef63db5aa4188af",
+        "android_client_info": {
+          "package_name": "com.example.yummy_chat_lecture2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "646716086782-9chfafomki8n47ctdest0ubr28ar8mf5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlxyRZas8EyEEvw0FevBwDzltp8f_r1-U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "646716086782-9chfafomki8n47ctdest0ubr28ar8mf5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
