@@ -3,6 +3,7 @@ import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:yummy_chat_lecture2/config/palette.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:yummy_chat_lecture2/screens/chat_screen.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class LoginSignupScreen extends StatefulWidget {
   const LoginSignupScreen({Key? key}) : super(key: key);
@@ -449,11 +450,20 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                               email: userEmail,
                               password: userPassword,
                             );
+
+                            await FirebaseFirestore.instance.collection('user').doc(newUser.user!.uid).set({
+                              'userName' : userName,
+                              'email' : userEmail
+                            });
+
                             if (newUser.user != null) {
-                              Navigator.push(context,
-                                  MaterialPageRoute(builder: (context) {
-                                return ChatScreen();
-                              }));
+                              // Navigator.push(context,
+                              //     MaterialPageRoute(builder: (context) {
+                              //   return ChatScreen();
+                              // }));
+                              setState(() {
+                                showSpinner = false;
+                              });
                             }
                           } catch (e) {
                             print(e);
@@ -464,6 +474,9 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                                 backgroundColor: Colors.blue,
                               ),
                             );
+                            setState(() {
+                              showSpinner = false;
+                            });
                           }
                         }
                         if (!isSignupScreen) {
@@ -476,16 +489,19 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                             );
                             if (newUser.user != null) {
                               print(newUser.user);
-                              Navigator.push(context,
-                                  MaterialPageRoute(builder: (context) {
-                                return ChatScreen();
-                              },),);
+                              // Navigator.push(context,
+                              //     MaterialPageRoute(builder: (context) {
+                              //   return ChatScreen();
+                              // },),);
                               setState(() {
                                 showSpinner = false;
                               });
                             }
                           } catch (e) {
                             print(e);
+                            setState(() {
+                              showSpinner = false;
+                            });
                           }
                         }
                       },
